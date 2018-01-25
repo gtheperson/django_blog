@@ -12,11 +12,16 @@
 		<h1><a href="/">George's Blog</a></h1>
 	</div>
 
-	<div>
-		<p>Date Published: </p>
-		<h2><a href="/">Post Title</a></h2>
-		<p>Post Text</p>
-	</div>
+	{% for post in posts %}
+
+		<div>
+			<p>Published: {{post.published_date}}</p>
+			<h2><a href="/">{{post.title}}</a></h2>
+			<p>{{post.text|linebreaksbr}}</p>
+			<hr>
+		</div>
+
+	{% endfor %}
 
 </body>
 

@@ -14,4 +14,5 @@ class Post(models.Model):
 		self.save()
 
 	def __str__(self):
+		# this means when a query is made about Post objects the title is returned
 		return self.title
