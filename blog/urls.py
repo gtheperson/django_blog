@@ -9,5 +9,6 @@ from . import views
 urlpatterns = [
 	# this matches an empty string, which 127.0.0.8 etc is, and tells it to use a view named postlist for this url
 	# it also names the url, all urls should be given simple names
-	url(r'^$', views.post_list, name = 'post_list')
+	url(r'^$', views.post_list, name = 'post_list'),
+	url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
 ]

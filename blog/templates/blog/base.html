@@ -1,0 +1,30 @@
+<!-- Base template for blog -->
+<!-- The default page layout, allow blog posts to be inserted i -->
+
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+<head>
+	<title>Django George Blog</title>
+	<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Nova+Mono" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+</head>
+
+<body>
+
+	<div class="title-div">
+		<h1><a href="/">George's Blog</a></h1>
+		<span class="top-rt"><a href="#top-pos">Top</a></span>
+	</div>
+
+	<div class="pad"><a class="int-link" id="top-pos"></a></div>
+
+	{% block content %}
+	{% endblock %}
+
+</body>
+
+</html>

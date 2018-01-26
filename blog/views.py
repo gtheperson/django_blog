@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Post
 
@@ -12,3 +12,9 @@ def post_list(request):
 	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
 	# stuff between {} is what the template (post_list.html) will use to do stuff
 	return render(request, 'blog/post_list.html', {'posts': posts})
+
+def post_detail(request, pk):
+	# breaks if pk=pk not included
+	#pk is key of each post, a unique identifier
+	post = get_object_or_404(Post, pk=pk)
+	return render(request, 'blog/post_detail.html', {'post': post})
