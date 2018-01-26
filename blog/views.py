@@ -9,7 +9,7 @@ from .models import Post
 # which is then passed at the first arr of the view
 def post_list(request):
 	# create an ordered post list
-	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
 	# stuff between {} is what the template (post_list.html) will use to do stuff
 	return render(request, 'blog/post_list.html', {'posts': posts})
 
