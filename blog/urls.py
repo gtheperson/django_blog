@@ -12,4 +12,7 @@ urlpatterns = [
 	url(r'^$', views.post_list, name = 'post_list'),
 	# the {% url %} essentially reserves this based on the name, so it generates a url based on the regex, and the passed in var is asigned to the P? (a parameter to pass into the view)
 	url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
+	# url for adding a new post
+	url(r'^post/new/$', views.post_new, name="post_new"),
+	url(r'^post/(?P<pk>\d+)/edit/$', views.post_edit, name="post_edit")
 ]

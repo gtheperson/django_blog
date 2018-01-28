@@ -4,6 +4,8 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+<!-- need to load because of img -->
+{% load staticfiles %}
 
 		<div class="post-div">
 			{% if post.published_date %}
@@ -11,6 +13,9 @@
 			{% endif %}
 			<h2><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2>
 			<p>{{post.text|linebreaksbr}}</p>
+			{% if user.is_authenticated %}
+				<a class="edit-post" href="{% url 'post_edit' pk=post.pk %}"><img src="{% static 'images/pencil.png' %}"></a>
+			{% endif %}
 		</div>
 
 {% endblock %}

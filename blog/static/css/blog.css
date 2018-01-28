@@ -28,6 +28,9 @@ h1 a {
 .top-rt a {
 		text-decoration: none;
 }
+.new-post {
+	padding-left:30px;
+}
 .pad {
 	height: 80px;
 }
@@ -40,7 +43,7 @@ h2 a {
 	color: #6d4828;
 }
 .post-div {
-	background-color: #e8f774;
+	background-color: #fff793;
 	padding: 20px;
 	border-radius: 10px;
 	margin: 20px;
