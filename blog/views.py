@@ -48,3 +48,23 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+def post_archive(request):
+	# a basic list of posts by date stored in a dictionary
+	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+	now = timezone.now()
+
+	# creat dic with initial keyes as years, for dics of months as keys for posts
+	post_dic = {}
+	#months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
+	start_year = posts[0].published_date.year
+	end_year = posts[len(posts)-1].published_date.year
+	for i in range(start_year, end_year + 1):
+		post_dic[i] = {}
+		for month in range(12, 0, -1):
+			post_dic[i][month] = []
+	for post in posts:
+		post_dic[post.published_date.year][post.published_date.month].append(post)
+
+	return render(request, 'blog/archive.html', {'post': post,'post_dic': post_dic})
+

@@ -1,0 +1,20 @@
+<!-- Template for post archive in blog -->
+<!-- The format of a blog post that is inserted into the default page -->
+
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	{% for year in post_dic %}
+
+		<div class="post-div">
+			<p class="date">Published: {{year}}</p>
+
+			{% for month in post_dic.2018 %}
+				<p>Month: {{month}}</p>
+
+			{% endfor %}
+			
+		</div>
+
+	{% endfor %}
+{% endblock %}
