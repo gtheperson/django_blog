@@ -4,13 +4,19 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-	{% for year in post_dic %}
+	<!-- post_dic is a dictionary of years as keys, containing dictionaries of months, containing lists of posts in those months-->
+
+	<h2>Published:</h2>
+	
+	{% for year, months in post_dic.items %}
 
 		<div class="post-div">
-			<p class="date">Published: {{year}}</p>
 
-			{% for month in post_dic.2018 %}
-				<p>Month: {{month}}</p>
+			{% for month, posts in months.items %}
+				<h3>{{year}} / {{month}}:</h3>
+				{% for post in posts %}
+					<p>{{post}}</p>
+				{% endfor %}
 
 			{% endfor %}
 			
