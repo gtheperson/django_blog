@@ -67,7 +67,7 @@ def post_archive(request):
 			if posts.filter(published_date__year=i).filter(published_date__month=month):
 				post_dic[i][month] = []
 	for post in posts:
-		post_dic[post.published_date.year][post.published_date.month].append(post)
+		post_dic[post.published_date.year][post.published_date.month].insert(0, post)
 
 	return render(request, 'blog/archive.html', {'post': post,'post_dic': post_dic})
 
