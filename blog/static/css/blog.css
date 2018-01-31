@@ -75,3 +75,17 @@ hr {
 	visibility: visible;
 	color: red;
 }
+
+/* stuff for small devices */
+@media screen and (max-width: 800px) {
+	.top-rt {
+		position: relative;
+		padding-left: 60px;
+	}
+	.title-div {
+		height: 180px;
+	}
+	.pad {
+		height: 160px;
+	}
+}
