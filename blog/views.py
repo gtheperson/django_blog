@@ -22,6 +22,7 @@ def post_detail(request, pk):
 
 def post_new(request):
 	# for when the logged in user wants to add a new blog post
+	# if the user is attempting to post a filled in form (by clicking save), check it's filled in and them save it and its details
 	if request.method == "POST":
 		form = PostForm(request.POST)
 		# does it have the title and text as required?
@@ -32,6 +33,7 @@ def post_new(request):
 			post.save()
 			return redirect('post_detail', pk=post.pk)
 	else:
+		# if it's a new form prsent a blank form
 		form = PostForm()
 	return render(request, 'blog/post_edit.html', {'form': form})
 

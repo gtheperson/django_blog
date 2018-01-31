@@ -23,7 +23,7 @@
 	<div class="title-div">
 		<h1><a href="/">George's Blog</a></h1>
 		<span class="top-rt">
-			<a href="archive">Archive /</a>
+			<a href="{% url 'post_archive' %}">Archive</a> / 
 			<a href="#top-pos">Top</a>
 			<!-- only a logged in user can add posts -->
 			{% if user.is_authenticated %}
@@ -36,6 +36,8 @@
 
 	{% block content %}
 	{% endblock %}
+
+	<script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 
 </body>
 

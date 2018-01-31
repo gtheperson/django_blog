@@ -6,22 +6,27 @@
 {% block content %}
 	<!-- post_dic is a dictionary of years as keys, containing dictionaries of months, containing lists of posts in those months-->
 	<div class="post-div">
-		<h2>Post Archive:</h2>
-	</div>
+		<h2>Post Archive: <span class="sub-title">click months to expand</span></h2>
+		<hr>
 
-	{% for year, months in post_dic.items %}
+		{% for year, months in post_dic.items %}
 
-		<div class="post-div">
 
 			{% for month, posts in months.items %}
+			<div class="month-div">
 				<h3>{{year}} / {{month}}:</h3>
-				{% for post in posts %}
-					<p><a href="{% url 'post_detail' pk=post.pk %}">{{post}}</a></p>
-				{% endfor %}
+				<div class="monthly-post-div">
+					{% for post in posts %}
+						<p><a href="{% url 'post_detail' pk=post.pk %}">{{post}}</a></p>
+					{% endfor %}
+				</div>
+			</div>
 
 			{% endfor %}
 			
-		</div>
+		{% endfor %}
 
-	{% endfor %}
+	</div>
+
+	
 {% endblock %}
